@@ -1,0 +1,20 @@
+lst=['apple','guava','mango','banana','kiwi']
+print("length of list:",len(lst))
+print("first element:",lst[0])
+print("last element:",lst[-1])
+lst.append('papaya')
+print("update list:",lst)
+lst.remove('guava')
+print("update list:",lst)
+lst.sort()
+print("sorted list:",lst)
+lst.pop(1)
+print("update list:",lst)
+lst.revese()
+print("reversed list:",lst)
+print("multiplication on list:",lst*2)
+lst=lst[:4]
+print("sliced list:",lst)
+lst.clear()
+print("update list:",lst)
+
