@@ -9,4 +9,4 @@ file_write.close()
 file_append=open('codingal.txt','a')
 file_append.write("hello i am penguin")
 file_append.write("i am penguin i am 1 year old" )
-file_append.close
+file_append.close()
