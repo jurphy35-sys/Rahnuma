@@ -1,40 +1,29 @@
-"""
-╔══════════════════════════════════════════════════════════════╗
-║  LESSON 1 — Structuring the Interface                        ║
-╚══════════════════════════════════════════════════════════════╝
-
-GOAL: Set up Flask, create all routes, and make the UI render.
-      No AI yet — just structure and navigation.
-
-YOUR TASKS (app.py):
-  1. Import Flask, render_template, load_dotenv
-  2. Create the Flask app instance with a secret key
-  3. Add route for /  → renders index.html
-  4. Add route for /studio → renders studio.html (hcaptcha_site_key="")
-  5. Add route for /history → renders history.html (designs=[])
-
-YOUR TASKS (static/js/studio.js):
-  6. Wire up chip selection — clicking a chip marks it active
-     and updates the hidden input value
-  7. Wire up color picker ↔ hex text field sync
-  8. Wire up Generate button to show a placeholder message
-
-Run:  python app.py  →  http://localhost:5000
-"""
-
-# ── TODO 1: Import Flask, render_template, load_dotenv ────────
-
-
-# ── TODO 2: Create app instance and set secret key ────────────
-
-
-# ── TODO 3: Home route — renders index.html ───────────────────
-
-
-# ── TODO 4: Studio route — renders studio.html ────────────────
-
-
-# ── TODO 5: History route — renders history.html ──────────────
+from flask import Flask render_template
+from dotenv import load_dotenv
+load_dotenv()
+app=Flask(__name__)
+app.secret_key="sneker-studio-dev-key"
+@app.route("/")
+def index():
+  return render_template("index.html")
+@app.route("/studio")
+def studio():
+  return render_template("studio.html",hcaptcha_site_key="")
+@app.route("/history")
+def history():
+  return render_template("history.html,design=[]")
+def genarate_concept(prefs):
+  if not groq_client:
+    raise RuntimeError("GROQ_API_KEY not set")
+  chat=groq_chient.chat.compititon.create(
+    model='llama-3.3-70b versatile',
+    messeges=[{'role':'system','content':"sneaker design expert.joson only."},
+    {'role':'user','contact':designs_prompt.formate(prefs)},
+    ],temperatere=0.85,max_token=1200,
+    
+    
+  )
+  raw=chat.choce
 
 
 if __name__ == "__main__":
